@@ -175,7 +175,19 @@ public class BtnPane extends JPanel {
 		@Override
 		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
-			System.out.println(e.getKeyChar());
+			//System.out.println(e.getKeyChar());
+			char c = e.getKeyChar();
+			switch(c){
+			case 'j': statusCmd = "jump";break;
+			case 'f': statusCmd = "fire";break;
+			case 'y': statusCmd = "die";break;
+			case 'i': statusCmd = "idle";break;
+			case 's': statusCmd = "forward"; break;
+			case 'w': statusCmd = "forward"; break;
+			case 'd': statusCmd = "forward"; break;
+			case 'a': statusCmd = "forward"; break;
+			default: ;
+			}
 		}}
 
 }

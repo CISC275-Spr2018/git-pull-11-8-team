@@ -32,7 +32,7 @@ import javax.swing.JPanel;
 
 public class View extends JFrame{
 	private int imgIdx;
-    final int frameCount = 10;
+    int frameCount = 10;
 	final static int FWIDTH = 800;
 	final static int FHEIGHT = 800;
 	private int imgWidth = 165;
@@ -102,11 +102,14 @@ public class View extends JFrame{
 			super.paintComponent(g);
 			g.setColor(Color.gray);
 			
-			//currentState = btn.getStatusCmd();
+			currentState = btn.getStatusCmd();
+			frameCount = lodImg.getImages(currentState).getCount();
+			imgIdx = imgIdx % frameCount;
+			BufferedImage bfdImg = lodImg.getImages(currentState).getbfImg(currentDir)[imgIdx];
 			
 			
 	    	//picNum = (btn.getStartCmd().equalsIgnoreCase("Pause"))? picNum: (picNum + 1) % frameCount;
-	    	g.drawImage(lodImg.getImages(currentState).getbfImg(currentDir)[imgIdx], xloc, yloc, Color.gray, this);
+	    	g.drawImage(bfdImg, xloc, yloc, Color.gray, this);
 		}
 
 		public Dimension getPreferredSize() {

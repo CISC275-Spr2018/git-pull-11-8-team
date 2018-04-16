@@ -39,7 +39,8 @@ public class Model{
     	posX += d.getXdir() * xInc;
     	posY += d.getYdir() * yInc;
     	updateDirection(dirCmd);
-    	updateDir();}
+//    	updateDir();
+    	}
 	}//updateLocationAndDirection 
 
 	public int getX() {
@@ -53,6 +54,19 @@ public class Model{
 	public Direction getDirect() {
 		 return d;
 	}//getX
+	
+	public void updateDirection(String str) {
+    	switch(str){
+		case "east" : d = Direction.EAST; break;
+		case "west" : d = Direction.WEST; break;
+		case "south" : d = Direction.SOUTH; break;
+		case "north" : d = Direction.NORTH; break;
+		case "northeast" : d = Direction.NORTHEAST; break;
+		case "northwest" : d = Direction.NORTHWEST; break;
+		case "southwest" : d = Direction.SOUTHWEST; break;
+		default : d = Direction.SOUTHEAST; break;
+		}//switch
+    }//updateDirection
 	
 	public void updateDir(){
 		String dirStr = checkYdir() + checkXdir();
@@ -70,18 +84,7 @@ public class Model{
 		}//if
 	}//updateDir
 	
-	public void updateDirection(String str) {
-    	switch(str){
-		case "east" : d = Direction.EAST; break;
-		case "west" : d = Direction.WEST; break;
-		case "south" : d = Direction.SOUTH; break;
-		case "north" : d = Direction.NORTH; break;
-		case "northeast" : d = Direction.NORTHEAST; break;
-		case "northwest" : d = Direction.NORTHWEST; break;
-		case "southwest" : d = Direction.SOUTHWEST; break;
-		default : d = Direction.SOUTHEAST; break;
-		}//switch
-    }
+
 	
 	public String checkXdir(){
 		String str = (d.getXdir() == 0)? "": d.getName().substring(5);

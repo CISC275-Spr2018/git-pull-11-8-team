@@ -32,7 +32,8 @@ public class Controller {
 	
 	public void updateStatus(){
 		startCmd = view.getBtnPane().getStartCmd();
-		dirCmd = view.getBtnPane().getDirectionCmd();
+		dirCmd = (view.getBtnPane().getDirectionCmd().equalsIgnoreCase(view.getBtnPane().getMovCmd()))?
+				view.getBtnPane().getDirectionCmd(): view.getBtnPane().getMovCmd();
 		StatusCmd = view.getBtnPane().getStatusCmd();		
 		//System.out.println(startCmd);
 	}
@@ -53,7 +54,7 @@ public class Controller {
 	
 	public static void main(String[] args){
 		Controller cl = new Controller();
-
+    	cl.start();
 		
 	}
 }

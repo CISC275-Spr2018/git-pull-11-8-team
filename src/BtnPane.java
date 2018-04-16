@@ -137,6 +137,7 @@ public class BtnPane extends JPanel {
 				//System.out.println(directionCmd);
 				movDirCmd = directionCmd;
 			}//if-else if-else
+			System.out.println("the hot keys won't work after click the buttons Since the focus is on the buttons now");
 		}
 
 	}
